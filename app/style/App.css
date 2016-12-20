@@ -1,9 +1,0 @@
-div#sidebar,
-div#itemFeed {
-    display: inline-block;
-}
-
-form div,
-form span {
-    display: block;
-}
