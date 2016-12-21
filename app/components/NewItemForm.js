@@ -7,6 +7,12 @@ require('react-datepicker/dist/react-datepicker.css');
 var styles = {
     span: {
         display: 'block'
+    },
+    textarea: {
+        width: '100%'
+    },
+    label: {
+        width: '100%'
     }
 };
 
@@ -77,7 +83,7 @@ class NewItemForm extends React.Component {
         return (
             <form>
                 <div>
-                    <label>Name
+                    <label><span style = {styles.span}>Name</span>
                         <input type = "text" required
                             id = "name"
                             value = {this.state.todoItem.name}
@@ -85,7 +91,7 @@ class NewItemForm extends React.Component {
                     </label>
                 </div>
                 <div>
-                    <label>Location
+                    <label><span style = {styles.span}>Location</span>
                         <input type = "text"
                             id = "location"
                             value = {this.state.todoItem.location}
@@ -93,7 +99,7 @@ class NewItemForm extends React.Component {
                     </label>
                 </div>
                 <div>
-                    <label>Date
+                    <label><span style = {styles.span}>Date</span>
                         <DatePicker
                             id = "date"
                             selected = {this.state.startDate}
@@ -101,7 +107,7 @@ class NewItemForm extends React.Component {
                     </label>
                 </div>
                 <div>
-                    <label>Time
+                    <label><span style = {styles.span}>Time</span>
                         <input type = "time"
                             id = "time"
                             value = {this.state.todoItem.time}
@@ -109,11 +115,12 @@ class NewItemForm extends React.Component {
                     </label>
                 </div>
                 <div>
-                    <label><span style = {styles.span}>Description</span>
-                        <textarea rows = "10"
+                    <label style = {styles.label}><span style = {styles.span}>Description</span>
+                        <textarea rows = "5"
                             id = "description"
                             value = {this.state.todoItem.description}
-                            onChange = {this.handleChange}></textarea>
+                            onChange = {this.handleChange}
+                            style = {styles.textarea}></textarea>
                     </label>
                 </div>
                 <div>
