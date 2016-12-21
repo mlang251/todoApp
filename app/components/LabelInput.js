@@ -1,4 +1,5 @@
 import React from 'react';
+import Radium from 'radium';
 import Datepicker from './Datepicker';
 
 var styles = {
@@ -34,8 +35,9 @@ class LabelInput extends React.Component {
                 id = "Date"
                 update = {this.props.update}
             />
-        ) : type === "Description" ? (
-            <textarea rows = "5"
+        ) : type === "description" ? (
+            <textarea
+                rows = "5"
                 id = "Description"
                 value = {this.state.value}
                 onChange = {this.handleChange}
@@ -56,12 +58,11 @@ class LabelInput extends React.Component {
                 <label
                     htmlFor = {id}
                     id = {id}
-                    style = {styles.label}>
-                </label>
+                    style = {styles.label}>{id}</label>
                 {element}
             </div>
         );
     }
 }
 
-export default LabelInput;
+export default Radium(LabelInput);

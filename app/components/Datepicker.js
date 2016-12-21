@@ -37,3 +37,5 @@ class Datepicker extends React.Component {
         );
     }
 }
+
+export default Datepicker;
