@@ -2,13 +2,6 @@ import React from 'react';
 import TodoItem from './TodoItem';
 import Radium from 'radium';
 
-var styles = {
-    base: {
-        display: "inline-block",
-        padding: 15
-    }
-};
-
 class ItemFeed extends React.Component {
     render() {
         var items = [];
@@ -18,7 +11,8 @@ class ItemFeed extends React.Component {
         });
 
         return (
-            <div id = "itemFeed" style = {styles.base}>
+            <div id = "itemFeed"
+                className = {this.props.outerElementClassName}>
                 <h2>Item Feed</h2>
                 {items}
             </div>
