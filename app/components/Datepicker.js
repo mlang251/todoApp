@@ -33,7 +33,8 @@ class Datepicker extends React.Component {
                 id = {this.props.id}
                 selected = {this.state.startDate}
                 onChange = {this.handleChange}
-                onBlur = {this.handleBlur} />
+                onBlur = {this.handleBlur}
+                style = {this.props.addStyle}/>
         );
     }
 }

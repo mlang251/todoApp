@@ -13,7 +13,7 @@ var styles = {
         width: 400,
         boxShadow: '0 3px 8px #333'
     },
-    name: {
+    Name: {
         fontSize: '2em',
         fontFamily: 'arial',
         display: 'inline-block',
@@ -22,7 +22,7 @@ var styles = {
         paddingBottom: 5,
         paddingRight: 5
     },
-    location: {
+    Location: {
         fontSize: '1.6em',
         fontFamily: 'arial',
         display: 'inline-block',
@@ -30,7 +30,7 @@ var styles = {
         margin: 0,
         paddingBottom: 5
     },
-    date: {
+    Date: {
         fontSize: '1.2em',
         fontFamily: 'arial',
         display: 'inline-block',
@@ -39,7 +39,7 @@ var styles = {
         paddingBottom: 5,
         paddingRight: 5
     },
-    time: {
+    Time: {
         fontSize: '1.2em',
         fontFamily: 'arial',
         display: 'inline-block',
@@ -47,7 +47,7 @@ var styles = {
         margin: 0,
         paddingBottom: 5
     },
-    description: {
+    Description: {
         fontSize: '1em',
         fontFamily: 'georgia',
         color: '#A33',

@@ -5,6 +5,9 @@ import Datepicker from './Datepicker';
 var styles = {
     label: {
         display: 'block'
+    },
+    textarea: {
+        width: '100%'
     }
 };
 
@@ -41,7 +44,8 @@ class LabelInput extends React.Component {
                 id = "Description"
                 value = {this.state.value}
                 onChange = {this.handleChange}
-                onBlur = {this.handleBlur}>
+                onBlur = {this.handleBlur}
+                style = {styles.textarea}>
             </textarea>
         ) : (
             <input

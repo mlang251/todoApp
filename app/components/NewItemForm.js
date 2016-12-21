@@ -3,13 +3,7 @@ import Radium from 'radium';
 import LabelInput from './LabelInput';
 
 var styles = {
-    span: {
-        display: 'block'
-    },
     textarea: {
-        width: '100%'
-    },
-    label: {
         width: '100%'
     }
 };
