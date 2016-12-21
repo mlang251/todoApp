@@ -7,7 +7,7 @@ class Sidebar extends React.Component {
         return (
             <div id = "sidebar"
                 className = {this.props.outerElementClassName}>
-                <h2>Add New Item</h2>
+                <h2 className = "text-center">Add New Item</h2>
                 <NewItemForm
                     addItem = {this.props.addItem} />
             </div>

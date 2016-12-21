@@ -6,7 +6,7 @@ var styles = {
         borderWidth: 1,
         borderStyle: 'solid',
         borderColor: '#999',
-        backgroundColor: '#ED0',
+        backgroundColor: '#4A4959',
         padding: 15,
         marginBottom: 10,
         display: 'inline-block',
@@ -17,7 +17,7 @@ var styles = {
         fontSize: '2em',
         fontFamily: 'arial',
         display: 'inline-block',
-        color: '#55F',
+        color: '#3075BF',
         margin: 0,
         paddingBottom: 5,
         paddingRight: 5
@@ -26,7 +26,7 @@ var styles = {
         fontSize: '1.6em',
         fontFamily: 'arial',
         display: 'inline-block',
-        color: '#999',
+        color: '#2965A6',
         margin: 0,
         paddingBottom: 5
     },
@@ -34,7 +34,7 @@ var styles = {
         fontSize: '1.2em',
         fontFamily: 'arial',
         display: 'inline-block',
-        color: '#BBB',
+        color: '#FC9866',
         margin: 0,
         paddingBottom: 5,
         paddingRight: 5
@@ -43,15 +43,18 @@ var styles = {
         fontSize: '1.2em',
         fontFamily: 'arial',
         display: 'inline-block',
-        color: '#BBB',
+        color: '#B26B48',
         margin: 0,
         paddingBottom: 5
     },
     Description: {
         fontSize: '1em',
         fontFamily: 'georgia',
-        color: '#A33',
+        color: '#E9B9A0',
         margin: 0,
+    },
+    button: {
+        float: 'right'
     }
 }
 
@@ -88,7 +91,8 @@ class TodoItem extends React.Component {
                     {dateTime}
                 </div>
                 {description}
-                <button onClick = {this.handleClick}>X</button>
+                <button onClick = {this.handleClick}
+                    style = {styles.button}>X</button>
             </div>
         );
     }

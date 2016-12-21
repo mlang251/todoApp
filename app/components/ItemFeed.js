@@ -13,7 +13,7 @@ class ItemFeed extends React.Component {
         return (
             <div id = "itemFeed"
                 className = {this.props.outerElementClassName}>
-                <h2>Item Feed</h2>
+                <h2 className = "text-center">Item Feed</h2>
                 {items}
             </div>
         );
