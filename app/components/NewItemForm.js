@@ -1,7 +1,7 @@
 import React from 'react';
-import moment from 'moment';
-import DatePicker from 'react-datepicker';
 import Radium from 'radium';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
 require('react-datepicker/dist/react-datepicker.css');
 
 var styles = {
@@ -20,10 +20,12 @@ class NewItemForm extends React.Component {
                 date: '',
                 time: '',
                 description: ''
-            }
+            },
+            startDate: moment()
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
     }
 
     handleChange(e) {
@@ -34,6 +36,17 @@ class NewItemForm extends React.Component {
         }
         this.setState({
             todoItem: todoItem
+        });
+    }
+
+    handleDateChange(date) {
+        var stringDate = date.format('ddd MMM D, YYYY');
+        var todoItem = this.state.todoItem;
+        todoItem.date = stringDate;
+
+        this.setState({
+            todoItem: todoItem,
+            startDate: date
         });
     }
 
@@ -50,7 +63,13 @@ class NewItemForm extends React.Component {
     }
 
     handleClick() {
-        this.props.addItem(this.state.todoItem);
+        var todoItem = {};
+        for (var prop in this.state.todoItem) {
+            if (this.state.todoItem[prop] !== '') {
+                todoItem[prop] = this.state.todoItem[prop];
+            }
+        }
+        this.props.addItem(todoItem);
         this.clearForm();
     }
 
@@ -77,8 +96,8 @@ class NewItemForm extends React.Component {
                     <label>Date
                         <DatePicker
                             id = "date"
-                            value = {this.state.todoItem.date}
-                            onChange = {this.handleChange}/>
+                            selected = {this.state.startDate}
+                            onChange = {this.handleDateChange}/>
                     </label>
                 </div>
                 <div>

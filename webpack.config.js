@@ -5,14 +5,14 @@ var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
     filename: 'index.html',
     inject: 'body'
 });
-var UglifyJSPluginConfig = new webpack.optimize.UglifyJsPlugin({
-    compress: {
-        warnings: false
-    },
-    output: {
-        comments: false
-    }
-});
+//var UglifyJSPluginConfig = new webpack.optimize.UglifyJsPlugin({
+//    compress: {
+//        warnings: false
+//    },
+//    output: {
+//        comments: false
+//    }
+//});
 
 module.exports = {
     entry: ['babel-polyfill', __dirname + '/app/index.js'],
@@ -33,5 +33,5 @@ module.exports = {
         filename: 'bundle.js',
         path: __dirname + '/build'
     },
-    plugins: [HTMLWebpackPluginConfig, UglifyJSPluginConfig]
+    plugins: [HTMLWebpackPluginConfig]
 };

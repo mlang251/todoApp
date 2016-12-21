@@ -12,8 +12,9 @@ var styles = {
 class ItemFeed extends React.Component {
     render() {
         var items = [];
-        this.props.items.forEach(item => {
-            items.push(<TodoItem item = {item} key = {item.name} />);
+        this.props.items.forEach((item, i) => {
+            var id = `${item.name}${i}`;
+            items.push(<TodoItem item = {item} key = {id} />);
         });
 
         return (
