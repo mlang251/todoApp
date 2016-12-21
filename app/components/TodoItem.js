@@ -73,9 +73,9 @@ class TodoItem extends React.Component {
             var componentStyles = styles[prop];
             var paragraphElement = <p key = {prop} style = {componentStyles}>{this.props.item[prop]}</p>;
 
-            prop == 'name' || prop == 'location' ? (
+            prop == 'Name' || prop == 'Location' ? (
                 nameLocation.push(paragraphElement)
-            ) : prop == 'date' || prop == 'time' ? (
+            ) : prop == 'Date' || prop == 'Time' ? (
                 dateTime.push(paragraphElement)
             ) : description = paragraphElement
         }

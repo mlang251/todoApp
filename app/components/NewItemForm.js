@@ -1,8 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
-require('react-datepicker/dist/react-datepicker.css');
+import LabelInput from './LabelInput';
 
 var styles = {
     span: {
@@ -21,38 +19,25 @@ class NewItemForm extends React.Component {
         super(props);
         this.state = {
             todoItem: {
-                name: '',
-                location: '',
-                date: '',
-                time: '',
-                description: ''
-            },
-            startDate: moment()
+                Name: '',
+                Location: '',
+                Date: '',
+                Time: '',
+                Description: ''
+            }
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.update = this.update.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        this.handleDateChange = this.handleDateChange.bind(this);
     }
 
-    handleChange(e) {
+    update(id, value) {
         var todoItem = {};
         for (var prop in this.state.todoItem) {
-            prop != e.target.id ? todoItem[prop] = this.state.todoItem[prop]
-                                : todoItem[prop] = e.target.value
+            prop != id ? todoItem[prop] = this.state.todoItem[prop]
+                       : todoItem[prop] = value
         }
         this.setState({
             todoItem: todoItem
-        });
-    }
-
-    handleDateChange(date) {
-        var stringDate = date.format('ddd MMM D, YYYY');
-        var todoItem = this.state.todoItem;
-        todoItem.date = stringDate;
-
-        this.setState({
-            todoItem: todoItem,
-            startDate: date
         });
     }
 
@@ -82,50 +67,12 @@ class NewItemForm extends React.Component {
     render() {
         return (
             <form>
-                <div>
-                    <label><span style = {styles.span}>Name</span>
-                        <input type = "text" required
-                            id = "name"
-                            value = {this.state.todoItem.name}
-                            onChange = {this.handleChange}></input>
-                    </label>
-                </div>
-                <div>
-                    <label><span style = {styles.span}>Location</span>
-                        <input type = "text"
-                            id = "location"
-                            value = {this.state.todoItem.location}
-                            onChange = {this.handleChange}></input>
-                    </label>
-                </div>
-                <div>
-                    <label><span style = {styles.span}>Date</span>
-                        <DatePicker
-                            id = "date"
-                            selected = {this.state.startDate}
-                            onChange = {this.handleDateChange}/>
-                    </label>
-                </div>
-                <div>
-                    <label><span style = {styles.span}>Time</span>
-                        <input type = "time"
-                            id = "time"
-                            value = {this.state.todoItem.time}
-                            onChange = {this.handleChange}></input>
-                    </label>
-                </div>
-                <div>
-                    <label style = {styles.label}><span style = {styles.span}>Description</span>
-                        <textarea rows = "5"
-                            id = "description"
-                            value = {this.state.todoItem.description}
-                            onChange = {this.handleChange}
-                            style = {styles.textarea}></textarea>
-                    </label>
-                </div>
-                <div>
-                    <button onClick = {this.handleClick}><label>Add Item</label></button>
-                </div>
+                <LabelInput id = "Name" type = "text" update = {this.update} />
+                <LabelInput id = "Location" type = "text" update = {this.update} />
+                <LabelInput id = "Date" type = "date" update = {this.update} />
+                <LabelInput id = "Time" type = "time" update = {this.update} />
+                <LabelInput id = "Description" type = "description" update = {this.update} />
+                <button onClick = {this.handleClick}><label>Add Item</label></button>
             </form>
         );
     }
