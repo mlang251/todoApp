@@ -14,7 +14,7 @@ class ItemFeed extends React.Component {
         var items = [];
         this.props.items.forEach((item, i) => {
             var id = `${item.name}${i}`;
-            items.push(<TodoItem item = {item} key = {id} />);
+            items.push(<TodoItem item = {item} key = {id} id = {id} removeItem = {this.props.removeItem}/>);
         });
 
         return (

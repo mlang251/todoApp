@@ -17,9 +17,12 @@ class TodoApp extends React.Component {
         this.setState({todoItems: todoItems});
     }
 
-    removeItem(name) {
-        var todoItems = this.state.todoItems.filter(currentItem => currentItem.name !== name)
-        this.setState({todoItems});
+    removeItem(removeId) {
+        var todoItems = this.state.todoItems.filter((currentItem, i) => {
+            var id = `${currentItem.name}${i}`;
+            return id !== removeId ? true : false;
+        });
+        this.setState({todoItems: todoItems});
     }
 
     render() {

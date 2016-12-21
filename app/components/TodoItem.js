@@ -3,7 +3,7 @@ import Radium from 'radium';
 
 var styles = {
     div_todoItem: {
-        border: 1,
+        borderWidth: 1,
         borderStyle: 'solid',
         borderColor: '#999',
         backgroundColor: '#ED0',
@@ -11,6 +11,7 @@ var styles = {
         marginBottom: 10,
         display: 'inline-block',
         width: 400,
+        boxShadow: '0 3px 8px #333'
     },
     name: {
         fontSize: '2em',
@@ -55,17 +56,28 @@ var styles = {
 }
 
 class TodoItem extends React.Component {
+    constructor() {
+        super();
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(id) {
+        this.props.removeItem(this.props.id);
+    }
+
     render() {
         var nameLocation = [];
         var dateTime = [];
         var description;
         for (var prop in this.props.item) {
             var componentStyles = styles[prop];
-            prop == 'name' || prop == 'location' ? nameLocation.push(
-                <p key = {prop} style = {componentStyles}>{this.props.item[prop]}</p>
-            ) : prop == 'date' || prop == 'time' ? dateTime.push(
-                <p key = {prop} style = {componentStyles}>{this.props.item[prop]}</p>
-            ) : description = <p key = {prop} style = {componentStyles}>{this.props.item[prop]}</p>
+            var paragraphElement = <p key = {prop} style = {componentStyles}>{this.props.item[prop]}</p>;
+
+            prop == 'name' || prop == 'location' ? (
+                nameLocation.push(paragraphElement)
+            ) : prop == 'date' || prop == 'time' ? (
+                dateTime.push(paragraphElement)
+            ) : description = paragraphElement
         }
         return (
             <div id = "todoItem" style = {styles.div_todoItem}>
@@ -76,6 +88,7 @@ class TodoItem extends React.Component {
                     {dateTime}
                 </div>
                 {description}
+                <button onClick = {this.handleClick}>X</button>
             </div>
         );
     }
