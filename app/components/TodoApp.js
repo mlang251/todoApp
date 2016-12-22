@@ -7,45 +7,17 @@ var outerElementClassName = {
     ItemFeed: "col-sm-8"
 };
 
-class TodoApp extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            todoItems: []
-        };
-        this.addItem = this.addItem.bind(this);
-        this.removeItem = this.removeItem.bind(this);
-    }
-    addItem(newItem) {
-        var todoItems = [
-            ...this.state.todoItems,
-            newItem
-        ];
-        this.setState({todoItems: todoItems});
-    }
-
-    removeItem(removeId) {
-        var todoItems = this.state.todoItems.filter((currentItem, i) => {
-            var id = `${currentItem.Name}${i}`;
-            return id !== removeId ? true : false;
-        });
-        this.setState({todoItems: todoItems});
-    }
-
-    render() {
-        return (
-            <div className = "row">
-                <h1 className = "text-center">My First Todo App</h1>
-                <Sidebar
-                    addItem = {this.addItem}
-                    outerElementClassName = {outerElementClassName.Sidebar} />
-                <ItemFeed
-                    items = {this.state.todoItems}
-                    removeItem = {this.removeItem}
-                    outerElementClassName = {outerElementClassName.ItemFeed} />
-            </div>
-        );
-    }
-}
+const TodoApp = props => (
+    <div className = "row">
+        <h1 className = "text-center">My First Todo App</h1>
+        <Sidebar
+            addItem = {props.addItem}
+            outerElementClassName = {outerElementClassName.Sidebar} />
+        <ItemFeed
+            items = {props.items}
+            removeItem = {props.removeItem}
+            outerElementClassName = {outerElementClassName.ItemFeed} />
+    </div>
+);
 
 export default TodoApp;
