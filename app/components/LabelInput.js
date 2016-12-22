@@ -11,62 +11,41 @@ var styles = {
     }
 };
 
-class LabelInput extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            value: ''
-        };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleBlur = this.handleBlur.bind(this);
-    }
+const LabelInput = props => {
+    var {id, type} = props;
+    var element = type === "date" ? (
+        <DatepickerContainer
+            id = "Date"
+            update = {props.update}
+        />
+    ) : type === "description" ? (
+        <textarea
+            rows = "5"
+            id = "Description"
+            value = {props.value}
+            onChange = {props.handleChange}
+            onBlur = {props.handleBlur}
+            style = {styles.textarea}>
+        </textarea>
+    ) : (
+        <input
+            type = {type}
+            id = {id}
+            value = {props.value}
+            onChange = {props.handleChange}
+            onBlur = {props.handleBlur}>
+        </input>
+    )
 
-    handleChange(e) {
-        this.setState({
-            value: e.target.value
-        });
-    }
-
-    handleBlur() {
-        this.props.update(this.props.id, this.state.value);
-    }
-
-    render() {
-        var {id, type} = this.props;
-        var element = type === "date" ? (
-            <DatepickerContainer
-                id = "Date"
-                update = {this.props.update}
-            />
-        ) : type === "description" ? (
-            <textarea
-                rows = "5"
-                id = "Description"
-                value = {this.state.value}
-                onChange = {this.handleChange}
-                onBlur = {this.handleBlur}
-                style = {styles.textarea}>
-            </textarea>
-        ) : (
-            <input
-                type = {type}
+    return (
+        <div>
+            <label
+                htmlFor = {id}
                 id = {id}
-                value = {this.state.value}
-                onChange = {this.handleChange}
-                onBlur = {this.handleBlur}>
-            </input>
-        )
-
-        return (
-            <div>
-                <label
-                    htmlFor = {id}
-                    id = {id}
-                    style = {styles.label}>{id}</label>
-                {element}
-            </div>
-        );
-    }
+                style = {styles.label}>{id}</label>
+            {element}
+        </div>
+    );
 }
 
 export default Radium(LabelInput);

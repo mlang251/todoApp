@@ -1,6 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
-import LabelInput from './LabelInput';
+import LabelInputContainer from './LabelInputContainer';
 
 class NewItemForm extends React.Component {
     constructor(props) {
@@ -56,11 +56,11 @@ class NewItemForm extends React.Component {
     render() {
         return (
             <form>
-                <LabelInput id = "Name" type = "text" update = {this.update} />
-                <LabelInput id = "Location" type = "text" update = {this.update} />
-                <LabelInput id = "Date" type = "date" update = {this.update} />
-                <LabelInput id = "Time" type = "time" update = {this.update} />
-                <LabelInput id = "Description" type = "description" update = {this.update} />
+                <LabelInputContainer id = "Name" type = "text" update = {this.update} />
+                <LabelInputContainer id = "Location" type = "text" update = {this.update} />
+                <LabelInputContainer id = "Date" type = "date" update = {this.update} />
+                <LabelInputContainer id = "Time" type = "time" update = {this.update} />
+                <LabelInputContainer id = "Description" type = "description" update = {this.update} />
                 <button onClick = {this.handleClick}><label>Add Item</label></button>
             </form>
         );
