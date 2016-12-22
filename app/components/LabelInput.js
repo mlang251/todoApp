@@ -12,8 +12,8 @@ var styles = {
 };
 
 const LabelInput = props => {
-    var {id, type} = props;
-    var element = type === "date" ? (
+    const {id, type} = props;
+    const element = type === "date" ? (
         <DatepickerContainer
             id = "Date"
             update = {props.update}

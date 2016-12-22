@@ -1,6 +1,35 @@
 import React from 'react';
 import Radium from 'radium';
 
+const TodoItem = props => {
+    let nameLocation = [];
+    let dateTime = [];
+    let description;
+    for (let prop in props.item) {
+        let componentStyles = styles[prop];
+        let paragraphElement = <p key = {prop} style = {componentStyles}>{props.item[prop]}</p>;
+
+        prop == 'Name' || prop == 'Location' ? (
+            nameLocation.push(paragraphElement)
+        ) : prop == 'Date' || prop == 'Time' ? (
+            dateTime.push(paragraphElement)
+        ) : description = paragraphElement
+    }
+    return (
+        <div id = "todoItem" style = {styles.div_todoItem}>
+            <div id = "name-location">
+                {nameLocation}
+            </div>
+            <div id = "date-time">
+                {dateTime}
+            </div>
+            {description}
+            <button onClick = {props.removeItem.bind(null, props.id)}
+                style = {styles.button}>X</button>
+        </div>
+    );
+}
+
 var styles = {
     div_todoItem: {
         borderWidth: 1,
@@ -58,33 +87,6 @@ var styles = {
     }
 }
 
-const TodoItem = props => {
-    var nameLocation = [];
-    var dateTime = [];
-    var description;
-    for (var prop in props.item) {
-        var componentStyles = styles[prop];
-        var paragraphElement = <p key = {prop} style = {componentStyles}>{props.item[prop]}</p>;
-
-        prop == 'Name' || prop == 'Location' ? (
-            nameLocation.push(paragraphElement)
-        ) : prop == 'Date' || prop == 'Time' ? (
-            dateTime.push(paragraphElement)
-        ) : description = paragraphElement
-    }
-    return (
-        <div id = "todoItem" style = {styles.div_todoItem}>
-            <div id = "name-location">
-                {nameLocation}
-            </div>
-            <div id = "date-time">
-                {dateTime}
-            </div>
-            {description}
-            <button onClick = {props.removeItem.bind(null, props.id)}
-                style = {styles.button}>X</button>
-        </div>
-    );
-}
-
 export default Radium(TodoItem);
+
+

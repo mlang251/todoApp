@@ -19,8 +19,8 @@ class NewItemFormContainer extends React.Component {
     }
 
     update(id, value) {
-        var todoItem = {};
-        for (var prop in this.state.todoItem) {
+        let todoItem = {};
+        for (let prop in this.state.todoItem) {
             prop != id ? todoItem[prop] = this.state.todoItem[prop]
             : todoItem[prop] = value
         }
@@ -42,8 +42,8 @@ class NewItemFormContainer extends React.Component {
     }
 
     handleClick() {
-        var todoItem = {};
-        for (var prop in this.state.todoItem) {
+        let todoItem = {};
+        for (let prop in this.state.todoItem) {
             if (this.state.todoItem[prop] !== '') {
                 todoItem[prop] = this.state.todoItem[prop];
             }
@@ -53,8 +53,17 @@ class NewItemFormContainer extends React.Component {
     }
 
     render() {
+        const formFields = {
+            Name: "text",
+            Location: "text",
+            Date: "date",
+            Time: "time",
+            Description: "description"
+        };
+
         return (
             <NewItemForm
+                fields = {formFields}
                 update = {this.update}
                 handleClick = {this.handleClick}
             />

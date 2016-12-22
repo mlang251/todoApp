@@ -2,11 +2,6 @@ import React from 'react';
 import ItemFeed from './ItemFeed';
 import Sidebar from './Sidebar';
 
-var outerElementClassName = {
-    Sidebar: "col-sm-4",
-    ItemFeed: "col-sm-8"
-};
-
 const TodoApp = props => (
     <div className = "row">
         <h1 className = "text-center">My First Todo App</h1>
@@ -19,5 +14,10 @@ const TodoApp = props => (
             outerElementClassName = {outerElementClassName.ItemFeed} />
     </div>
 );
+
+var outerElementClassName = {
+    Sidebar: "col-sm-4",
+    ItemFeed: "col-sm-8"
+};
 
 export default TodoApp;

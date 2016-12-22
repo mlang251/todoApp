@@ -15,7 +15,7 @@ class DatepickerContainer extends React.Component {
     }
 
     selectDate(date) {
-        var stringDate = date.format('ddd MMM D, YYYY');
+        const stringDate = date.format('ddd MMM D, YYYY');
 
         this.setState({
             startDate: date,
