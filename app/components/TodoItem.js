@@ -15,6 +15,10 @@ const TodoItem = props => {
             dateTime.push(paragraphElement)
         ) : description = paragraphElement
     }
+
+    props.checked ? Object.assign(styles.div_todoItem, {backgroundColor: '#56F066'})
+                  : Object.assign(styles.div_todoItem, {backgroundColor: '#4A4959'})
+
     return (
         <div id = "todoItem" style = {styles.div_todoItem}>
             <div id = "name-location">
@@ -24,6 +28,7 @@ const TodoItem = props => {
                 {dateTime}
             </div>
             {description}
+            <label><input type = "checkbox" checked = {props.checked} onChange = {props.handleChange}/>Mark as complete</label>
             <button onClick = {props.removeItem.bind(null, props.id)}
                 style = {styles.button}>X</button>
         </div>
@@ -35,7 +40,6 @@ var styles = {
         borderWidth: 1,
         borderStyle: 'solid',
         borderColor: '#999',
-        backgroundColor: '#4A4959',
         padding: 15,
         marginBottom: 10,
         display: 'inline-block',
