@@ -1,6 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
-import Datepicker from './Datepicker';
+import DatepickerContainer from './DatepickerContainer';
 
 var styles = {
     label: {
@@ -34,7 +34,7 @@ class LabelInput extends React.Component {
     render() {
         var {id, type} = this.props;
         var element = type === "date" ? (
-            <Datepicker
+            <DatepickerContainer
                 id = "Date"
                 update = {this.props.update}
             />
