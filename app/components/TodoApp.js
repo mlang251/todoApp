@@ -13,6 +13,8 @@ class TodoApp extends React.Component {
         this.state = {
             todoItems: []
         };
+        this.addItem = this.addItem.bind(this);
+        this.removeItem = this.removeItem.bind(this);
     }
     addItem(newItem) {
         var todoItems = [
@@ -35,11 +37,11 @@ class TodoApp extends React.Component {
             <div className = "row">
                 <h1 className = "text-center">My First Todo App</h1>
                 <Sidebar
-                    addItem = {this.addItem.bind(this)}
+                    addItem = {this.addItem}
                     outerElementClassName = {outerElementClassName.Sidebar} />
                 <ItemFeed
                     items = {this.state.todoItems}
-                    removeItem = {this.removeItem.bind(this)}
+                    removeItem = {this.removeItem}
                     outerElementClassName = {outerElementClassName.ItemFeed} />
             </div>
         );
