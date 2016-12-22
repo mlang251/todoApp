@@ -8,7 +8,6 @@ class LabelInputContainer extends React.Component {
             value: ''
         };
         this.handleChange = this.handleChange.bind(this);
-        this.handleBlur = this.handleBlur.bind(this);
     }
 
     handleChange(e) {
@@ -17,18 +16,15 @@ class LabelInputContainer extends React.Component {
         });
     }
 
-    handleBlur() {
-        this.props.update(this.props.id, this.state.value);
-    }
-
     render() {
         return (
             <LabelInput
                 id = {this.props.id}
                 type = {this.props.type}
                 update = {this.props.update}
+                value = {this.state.value}
                 handleChange = {this.handleChange}
-                handleBlur = {this.handleBlur}
+                handleBlur = {this.props.update.bind(null, this.props.id, this.state.value)}
             />
         );
     }

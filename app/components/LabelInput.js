@@ -2,15 +2,6 @@ import React from 'react';
 import Radium from 'radium';
 import DatepickerContainer from './DatepickerContainer';
 
-var styles = {
-    label: {
-        display: 'block'
-    },
-    textarea: {
-        width: '100%'
-    }
-};
-
 const LabelInput = props => {
     const {id, type} = props;
     const element = type === "date" ? (
@@ -47,5 +38,14 @@ const LabelInput = props => {
         </div>
     );
 }
+
+var styles = {
+    label: {
+        display: 'block'
+    },
+    textarea: {
+        width: '100%'
+    }
+};
 
 export default Radium(LabelInput);
