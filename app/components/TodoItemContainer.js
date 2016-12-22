@@ -21,7 +21,6 @@ class TodoItemContainer extends React.Component {
         return (
             <TodoItem
                 item = {this.props.item}
-                id = {this.props.id}
                 checked = {this.state.checked}
                 removeItem = {this.props.removeItem}
                 handleChange = {this.handleChange} />

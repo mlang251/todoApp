@@ -6,8 +6,8 @@ const TodoItem = props => {
     let dateTime = [];
     let description;
     for (let prop in props.item) {
-        let componentStyles = styles[prop];
-        let paragraphElement = <p key = {prop} style = {componentStyles}>{props.item[prop]}</p>;
+        const componentStyles = styles[prop];
+        const paragraphElement = prop != "id" && <p key = {prop} style = {componentStyles}>{props.item[prop]}</p>;
 
         prop == 'Name' || prop == 'Location' ? (
             nameLocation.push(paragraphElement)
@@ -29,7 +29,7 @@ const TodoItem = props => {
             </div>
             {description}
             <label><input type = "checkbox" checked = {props.checked} onChange = {props.handleChange}/>Mark as complete</label>
-            <button onClick = {props.removeItem.bind(null, props.id)}
+            <button onClick = {props.removeItem.bind(null, props.item.id)}
                 style = {styles.button}>X</button>
         </div>
     );

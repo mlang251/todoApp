@@ -11,7 +11,8 @@ class NewItemFormContainer extends React.Component {
                 Date: '',
                 Time: '',
                 Description: ''
-            }
+            },
+            idIndex: 0
         };
         this.update = this.update.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -30,6 +31,7 @@ class NewItemFormContainer extends React.Component {
     }
 
     clearForm() {
+        let nextId = this.state.idIndex+1;
         this.setState({
             todoItem: {
                 Name: '',
@@ -37,12 +39,14 @@ class NewItemFormContainer extends React.Component {
                 Date: '',
                 Time: '',
                 Description: ''
-            }
-        })
+            },
+            idIndex: nextId
+        });
     }
 
     handleClick() {
         let todoItem = {};
+        todoItem.id = `${this.state.todoItem.Name}${this.state.idIndex}`;
         for (let prop in this.state.todoItem) {
             if (this.state.todoItem[prop] !== '') {
                 todoItem[prop] = this.state.todoItem[prop];

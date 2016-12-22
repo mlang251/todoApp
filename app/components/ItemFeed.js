@@ -5,8 +5,7 @@ import Radium from 'radium';
 const ItemFeed = props => {
     let items = [];
     props.items.forEach((item, i) => {
-        const id = `${item.Name}${i}`;
-        items.push(<TodoItemContainer item = {item} key = {id} id = {id} removeItem = {props.removeItem}/>);
+        items.push(<TodoItemContainer item = {item} key = {item.id} removeItem = {props.removeItem}/>);
     });
 
     return (

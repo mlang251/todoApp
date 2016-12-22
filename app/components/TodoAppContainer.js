@@ -20,8 +20,7 @@ class TodoAppContainer extends React.Component {
 
     removeItem(removeId) {
         const todoItems = this.state.todoItems.filter((currentItem, i) => {
-            const id = `${currentItem.Name}${i}`;
-            return id !== removeId ? true : false;
+            return currentItem.id !== removeId ? true : false;
         });
         this.setState({todoItems: todoItems});
     }
