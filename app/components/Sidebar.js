@@ -1,5 +1,5 @@
 import React from 'react';
-import NewItemForm from './NewItemForm';
+import NewItemFormContainer from './NewItemFormContainer';
 import Radium from 'radium';
 
 class Sidebar extends React.Component {
@@ -8,7 +8,7 @@ class Sidebar extends React.Component {
             <div id = "sidebar"
                 className = {this.props.outerElementClassName}>
                 <h2 className = "text-center">Add New Item</h2>
-                <NewItemForm
+                <NewItemFormContainer
                     addItem = {this.props.addItem} />
             </div>
         );
