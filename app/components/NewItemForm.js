@@ -2,12 +2,6 @@ import React from 'react';
 import Radium from 'radium';
 import LabelInput from './LabelInput';
 
-var styles = {
-    textarea: {
-        width: '100%'
-    }
-};
-
 class NewItemForm extends React.Component {
     constructor(props) {
         super(props);
@@ -22,6 +16,7 @@ class NewItemForm extends React.Component {
         };
         this.update = this.update.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.clearForm = this.clearForm.bind(this);
     }
 
     update(id, value) {
@@ -38,11 +33,11 @@ class NewItemForm extends React.Component {
     clearForm() {
         this.setState({
             todoItem: {
-                name: '',
-                location: '',
-                date: '',
-                time: '',
-                description: ''
+                Name: '',
+                Location: '',
+                Date: '',
+                Time: '',
+                Description: ''
             }
         })
     }
