@@ -19,7 +19,7 @@ class LabelInputContainer extends React.Component {
     render() {
         return (
             <LabelInput
-                id = {this.props.id}
+                field = {this.props.field}
                 type = {this.props.type}
                 update = {this.props.update}
                 value = {this.state.value}

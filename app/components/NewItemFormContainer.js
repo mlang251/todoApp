@@ -19,11 +19,11 @@ class NewItemFormContainer extends React.Component {
         this.clearForm = this.clearForm.bind(this);
     }
 
-    update(id, value) {
+    update(field, value) {
         let todoItem = {};
         for (let prop in this.state.todoItem) {
-            prop != id ? todoItem[prop] = this.state.todoItem[prop]
-            : todoItem[prop] = value
+            prop != field ? todoItem[prop] = this.state.todoItem[prop]
+                          : todoItem[prop] = value
         }
         this.setState({
             todoItem: todoItem
@@ -31,7 +31,8 @@ class NewItemFormContainer extends React.Component {
     }
 
     clearForm() {
-        let nextId = this.state.idIndex+1;
+        let nextId = this.state.idIndex;
+        nextId++;
         this.setState({
             todoItem: {
                 Name: '',

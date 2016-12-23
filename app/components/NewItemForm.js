@@ -5,7 +5,7 @@ import LabelInputContainer from './LabelInputContainer';
 const NewItemForm = props => {
     let inputs = [];
     for (let prop in props.fields) {
-        inputs.push(<LabelInputContainer key = {prop} id = {prop} type = {props.fields[prop]} update = {props.update} />)
+        inputs.push(<LabelInputContainer key = {prop} field = {prop} type = {props.fields[prop]} update = {props.update} />)
     }
 
     return (
