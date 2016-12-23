@@ -24,7 +24,7 @@ class LabelInputContainer extends React.Component {
                 update = {this.props.update}
                 value = {this.state.value}
                 handleChange = {this.handleChange}
-                handleBlur = {this.props.update.bind(null, this.props.id, this.state.value)}
+                handleBlur = {this.props.update.bind(null, this.props.field, this.state.value)}
             />
         );
     }

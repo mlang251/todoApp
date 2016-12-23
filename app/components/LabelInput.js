@@ -3,7 +3,7 @@ import Radium from 'radium';
 import DatepickerContainer from './DatepickerContainer';
 
 const LabelInput = props => {
-    const {id, type} = props;
+    const {field, type} = props;
     const element = type === "date" ? (
         <DatepickerContainer
             id = "Date"
@@ -21,7 +21,7 @@ const LabelInput = props => {
     ) : (
         <input
             type = {type}
-            id = {id}
+            id = {field}
             value = {props.value}
             onChange = {props.handleChange}
             onBlur = {props.handleBlur}>
@@ -31,9 +31,9 @@ const LabelInput = props => {
     return (
         <div>
             <label
-                htmlFor = {id}
-                id = {id}
-                style = {styles.label}>{id}</label>
+                htmlFor = {field}
+                id = {field}
+                style = {styles.label}>{field}</label>
             {element}
         </div>
     );
