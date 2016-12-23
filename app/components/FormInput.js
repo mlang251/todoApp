@@ -1,39 +1,38 @@
 import React from 'react';
 import Radium from 'radium';
-import DatepickerContainer from './DatepickerContainer';
+import Datepicker from './Datepicker';
 
 const FormInput = props => {
-    const {id, type, update, value, handleChange, handleBlur} = props;
+    const {field, type, todoItem, updateField, startDate} = props;
     const element = type === "date" ? (
-        <DatepickerContainer
-            id = {id}
-            update = {update}
+        <Datepicker
+            field = {field}
+            startDate = {startDate}
+            updateField = {props.updateField}
         />
     ) : type === "description" ? (
         <textarea
             rows = "5"
-            id = {id}
-            value = {value}
-            onChange = {handleChange}
-            onBlur = {handleBlur}
+            id = "Description"
+            value = {todoItem[field]}
+            onChange = {updateField.bind(null, field, undefined)}
             style = {styles.textarea}>
         </textarea>
     ) : (
         <input
             type = {type}
-            id = {id}
-            value = {value}
-            onChange = {handleChange}
-            onBlur = {handleBlur}>
+            id = {field}
+            value = {todoItem[field]}
+            onChange = {updateField.bind(null, field, undefined)}>
         </input>
     )
 
     return (
         <div>
             <label
-                htmlFor = {id}
-                id = {id}
-                style = {styles.label}>{id}</label>
+                htmlFor = {field}
+                id = {field}
+                style = {styles.label}>{field}</label>
             {element}
         </div>
     );

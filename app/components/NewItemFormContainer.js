@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import NewItemForm from './NewItemForm';
 
 class NewItemFormContainer extends React.Component {
@@ -12,21 +13,26 @@ class NewItemFormContainer extends React.Component {
                 Time: '',
                 Description: ''
             },
+            startDate: moment(),
             idIndex: 0
         };
-        this.update = this.update.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        this.updateField = this.updateField.bind(this);
+        this.submitForm = this.submitForm.bind(this);
         this.clearForm = this.clearForm.bind(this);
     }
 
-    update(field, value) {
+    updateField(field, date, e) {
+        const [value, dateValue] = field !== "Date" ? [e.target.value, this.state.startDate]
+                                                    : [date.format('ddd MMM D, YYYY'), date]
+
         let todoItem = {};
         for (let prop in this.state.todoItem) {
             prop != field ? todoItem[prop] = this.state.todoItem[prop]
                           : todoItem[prop] = value
         }
         this.setState({
-            todoItem: todoItem
+            todoItem: todoItem,
+            startDate: dateValue
         });
     }
 
@@ -45,7 +51,7 @@ class NewItemFormContainer extends React.Component {
         });
     }
 
-    handleClick() {
+    submitForm() {
         let todoItem = {};
         todoItem.id = `${this.state.todoItem.Name}${this.state.idIndex}`;
         for (let prop in this.state.todoItem) {
@@ -68,9 +74,11 @@ class NewItemFormContainer extends React.Component {
 
         return (
             <NewItemForm
+                todoItem = {this.state.todoItem}
                 fields = {formFields}
-                update = {this.update}
-                handleClick = {this.handleClick}
+                updateField = {this.updateField}
+                submitForm = {this.submitForm}
+                startDate = {this.state.startDate}
             />
         );
     }

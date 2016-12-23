@@ -1,12 +1,11 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
+require('react-datepicker/dist/react-datepicker.css');
 
 const Datepicker = props => (
     <DatePicker
-        id = {props.id}
-        selected = {props.selected}
-        onChange = {props.selectDate}
-        onBlur = {props.update.bind(null, props.id, props.stringDate)}
+        selected = {props.startDate}
+        onChange = {props.updateField.bind(null, props.field)}
     />
 );
 
