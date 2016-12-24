@@ -3,8 +3,8 @@ import moment from 'moment';
 import NewItemForm from './NewItemForm';
 
 class NewItemFormContainer extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             todoItem: {
                 Name: '',
@@ -84,5 +84,10 @@ class NewItemFormContainer extends React.Component {
         );
     }
 }
+
+NewItemFormContainer.propTypes = {
+    submitForm: React.PropTypes.func.isRequired
+};
+
 
 export default NewItemFormContainer;

@@ -30,4 +30,18 @@ const NewItemForm = props => {
     );
 };
 
+NewItemForm.propTypes = {
+    todoItem: React.PropTypes.shape({
+        Name: React.PropTypes.string.isRequired,
+        Location: React.PropTypes.string.isRequired,
+        Date: React.PropTypes.string.isRequired,
+        Time: React.PropTypes.string.isRequired,
+        Description: React.PropTypes.string.isRequired
+    }).isRequired,
+    fields: React.PropTypes.object.isRequired,
+    updateField: React.PropTypes.func.isRequired,
+    submitForm: React.PropTypes.func.isRequired,
+    startDate: React.PropTypes.object.isRequired
+};
+
 export default Radium(NewItemForm);

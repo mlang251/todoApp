@@ -15,7 +15,7 @@ const FormInput = props => {
         <Datepicker
             field = {field}
             startDate = {startDate}
-            updateField = {props.updateField}
+            updateField = {updateField}
         />
     ) : (
         <textarea
@@ -37,6 +37,20 @@ const FormInput = props => {
         </div>
     );
 }
+
+FormInput.propTypes = {
+    field: React.PropTypes.string.isRequired,
+    type: React.PropTypes.string.isRequired,
+    todoItem: React.PropTypes.shape({
+        Name: React.PropTypes.string.isRequired,
+        Location: React.PropTypes.string.isRequired,
+        Date: React.PropTypes.string.isRequired,
+        Time: React.PropTypes.string.isRequired,
+        Description: React.PropTypes.string.isRequired
+    }).isRequired,
+    updateField: React.PropTypes.func.isRequired,
+    startDate: React.PropTypes.object.isRequired
+};
 
 var styles = {
     label: {

@@ -6,8 +6,12 @@ const Datepicker = props => (
     <DatePicker
         selected = {props.startDate}
         onChange = {props.updateField.bind(null, props.field)}
-        placeholderText = "Select date"
     />
 );
+
+Datepicker.propTypes = {
+    startDate: React.PropTypes.object.isRequired,
+    updateField: React.PropTypes.func.isRequired,
+};
 
 export default Datepicker;

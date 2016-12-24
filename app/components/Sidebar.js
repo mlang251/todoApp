@@ -11,4 +11,13 @@ const Sidebar = props => (
     </div>
 );
 
+Sidebar.propTypes = {
+    submitForm: React.PropTypes.func.isRequired,
+    outerElementClassName: React.PropTypes.string
+};
+
+Sidebar.defaultProps = {
+    outerElementClassName: 'sidebar'
+};
+
 export default Radium(Sidebar);

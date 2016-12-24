@@ -47,6 +47,19 @@ const TodoItem = props => {
     );
 }
 
+TodoItem.propTypes = {
+    item: React.PropTypes.shape({
+        Name: React.PropTypes.string,
+        Location: React.PropTypes.string,
+        Date: React.PropTypes.string,
+        Time: React.PropTypes.string,
+        Description: React.PropTypes.string
+    }).isRequired,
+    checked: React.PropTypes.bool.isRequired,
+    removeItem: React.PropTypes.func.isRequired,
+    handleCheckboxChange: React.PropTypes.func.isRequired
+};
+
 var styles = {
     div_todoItem: {
         borderWidth: 1,
@@ -108,7 +121,7 @@ var styles = {
     button: {
         float: 'right'
     }
-}
+};
 
 export default Radium(TodoItem);
 

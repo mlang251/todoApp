@@ -25,6 +25,30 @@ const TodoApp = props => (
     </div>
 );
 
+TodoApp.propTypes = {
+    submitForm: React.PropTypes.func.isRequired,
+    removeItem: React.PropTypes.func.isRequired,
+    todoItems: React.PropTypes.arrayOf(
+        React.PropTypes.shape({
+            Name: React.PropTypes.string,
+            Location: React.PropTypes.string,
+            Date: React.PropTypes.string,
+            Time: React.PropTypes.string,
+            Description: React.PropTypes.string
+        })
+    ).isRequired,
+    completedItems: React.PropTypes.arrayOf(
+        React.PropTypes.shape({
+            Name: React.PropTypes.string,
+            Location: React.PropTypes.string,
+            Date: React.PropTypes.string,
+            Time: React.PropTypes.string,
+            Description: React.PropTypes.string
+        })
+    ).isRequired,
+    handleCheckboxChange: React.PropTypes.func.isRequired
+};
+
 var outerElementClassName = {
     Sidebar: "col-sm-4",
     ItemFeed_todo: "col-sm-4",
