@@ -16,8 +16,14 @@ const TodoItem = props => {
         ) : description = paragraphElement
     }
 
-    props.checked ? Object.assign(styles.div_todoItem, {backgroundColor: '#56F066'})
-                  : Object.assign(styles.div_todoItem, {backgroundColor: '#4A4959'})
+    let checkboxMessage;
+    props.checked ? (
+        Object.assign(styles.div_todoItem, {backgroundColor: '#56F066'}),
+        checkboxMessage = "Mark as incomplete"
+    ) : (
+        Object.assign(styles.div_todoItem, {backgroundColor: '#A5A3C7'}),
+        checkboxMessage = "Mark as complete"
+    )
 
     return (
         <div id = "todoItem" style = {styles.div_todoItem}>
@@ -28,13 +34,14 @@ const TodoItem = props => {
                 {dateTime}
             </div>
             {description}
-            <label>
+            <label style = {styles.checkboxLabel}>
                 <input
                     type = "checkbox"
                     checked = {props.checked}
                     onChange = {props.handleCheckboxChange.bind(null, props.item.id, props.checked)}
-                />Mark as complete</label>
-            <button onClick = {props.removeItem.bind(null, props.item.id)}
+                    style = {styles.checkbox}
+                />{checkboxMessage}</label>
+            <button onClick = {props.removeItem.bind(null, props.item.id, props.checked)}
                 style = {styles.button}>X</button>
         </div>
     );
@@ -48,7 +55,7 @@ var styles = {
         padding: 15,
         marginBottom: 10,
         display: 'inline-block',
-        width: 400,
+        width: '100%',
         boxShadow: '0 3px 8px #333'
     },
     Name: {
@@ -72,7 +79,7 @@ var styles = {
         fontSize: '1.2em',
         fontFamily: 'arial',
         display: 'inline-block',
-        color: '#FC9866',
+        color: '#7F4D34',
         margin: 0,
         paddingBottom: 5,
         paddingRight: 5
@@ -88,8 +95,15 @@ var styles = {
     Description: {
         fontSize: '1em',
         fontFamily: 'georgia',
-        color: '#E9B9A0',
+        color: '#7F5567',
         margin: 0,
+    },
+    checkboxLabel: {
+        fontWeight: 'normal',
+        marginBottom: 0
+    },
+    checkbox: {
+        verticalAlign: 'middle'
     },
     button: {
         float: 'right'

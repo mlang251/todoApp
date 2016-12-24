@@ -60,7 +60,7 @@ class NewItemFormContainer extends React.Component {
                 todoItem[prop] = this.state.todoItem[prop];
             }
         }
-        this.props.addItem(todoItem);
+        this.props.submitForm(todoItem);
         this.clearForm();
     }
 

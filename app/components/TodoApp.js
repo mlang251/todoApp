@@ -6,7 +6,7 @@ const TodoApp = props => (
     <div className = "row">
         <h1 className = "text-center">My First Todo App</h1>
         <Sidebar
-            addItem = {props.addItem}
+            submitForm = {props.submitForm}
             outerElementClassName = {outerElementClassName.Sidebar} />
         <ItemFeed
             heading = "Todo Items"

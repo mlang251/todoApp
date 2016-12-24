@@ -8,48 +8,58 @@ class TodoAppContainer extends React.Component {
             todoItems: [],
             completedItems: []
         };
-        this.addItem = this.addItem.bind(this);
+        this.submitForm = this.submitForm.bind(this);
         this.removeItem = this.removeItem.bind(this);
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     }
 
-    addItem(newItem) {
-        const todoItems = [
-            ...this.state.todoItems,
-            newItem
+    addItemToArray(item, newTodoItem) {
+        const arrayName = newTodoItem ? "todoItems"
+                                      : "completedItems"
+        const newArray = [
+            ...this.state[arrayName],
+            item
         ];
-        this.setState({todoItems: todoItems});
+        return newArray;
     }
 
-    removeItem(removeId) {
-        let itemToRemove;
-        const todoItems = this.state.todoItems.filter(currentItem => {
-            return currentItem.id !== removeId ? true : false;
-        });
-        this.setState({todoItems: todoItems});
-        return
-    }
+    removeItemFromArray(removeId, checked) {
+        const arrayName = checked ? "completedItems"
+                                  : "todoItems"
 
-    handleCheckboxChange(itemId, checked) {
-        const [moveFromArrayName, moveToArrayName] = checked ? ["completedItems", "todoItems"]
-                                                             : ["todoItems", "completedItems"]
-        let itemToMove = {};
-        const moveFromArray = this.state[moveFromArrayName].filter(currentItem => {
+        let removedItem = {};
+        const newArray = this.state[arrayName].filter(currentItem => {
             let keepItem;
-            currentItem.id !== itemId ? (
+            currentItem.id !== removeId ? (
                 keepItem = true
             ) : (
-                Object.assign(itemToMove, currentItem),
+                Object.assign(removedItem, currentItem),
                 keepItem = false
             )
             return keepItem;
         });
 
-        const moveToArray = [
-            ...this.state[moveToArrayName],
-            itemToMove
-        ];
+        return [newArray, removedItem];
+    }
 
+    submitForm(newItem) {
+        const todoItems = this.addItemToArray(newItem, true);
+        this.setState({todoItems: todoItems});
+    }
+
+    removeItem(removeId, checked) {
+        const [newArray] = this.removeItemFromArray(removeId, checked);
+
+        checked ? this.setState({completedItems: newArray})
+                : this.setState({todoItems: newArray})
+    }
+
+    handleCheckboxChange(itemId, checked) {
+        const [moveFromArrayName, moveToArrayName] = checked ? ["completedItems", "todoItems"]
+                                                             : ["todoItems", "completedItems"]
+
+        const [moveFromArray, itemToMove] = this.removeItemFromArray(itemId, checked);
+        const moveToArray = this.addItemToArray(itemToMove, checked);
         const [todoItems, completedItems] = checked ? [moveToArray, moveFromArray]
                                                     : [moveFromArray, moveToArray]
 
@@ -62,7 +72,7 @@ class TodoAppContainer extends React.Component {
     render() {
         return (
             <TodoApp
-                addItem = {this.addItem}
+                submitForm = {this.submitForm}
                 removeItem = {this.removeItem}
                 todoItems = {this.state.todoItems}
                 completedItems = {this.state.completedItems}

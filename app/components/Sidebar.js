@@ -7,7 +7,7 @@ const Sidebar = props => (
         className = {props.outerElementClassName}>
         <h2 className = "text-center">Add New Item</h2>
         <NewItemFormContainer
-            addItem = {props.addItem} />
+            submitForm = {props.submitForm} />
     </div>
 );
 
