@@ -28,7 +28,7 @@ const assignCheckboxMessage = checked => {
         checkboxMessage = "Mark as complete"
     )
     return checkboxMessage;
-}
+};
 
 const TodoItem = props => {
     const {item, checked, removeItem, handleCheckboxChange} = props;
@@ -55,7 +55,7 @@ const TodoItem = props => {
                 style = {styles.button}>X</button>
         </div>
     );
-}
+};
 
 TodoItem.propTypes = {
     item: React.PropTypes.shape({
