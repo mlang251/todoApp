@@ -6,6 +6,7 @@ const Datepicker = props => (
     <DatePicker
         selected = {props.startDate}
         onChange = {props.updateField.bind(null, props.field)}
+        placeholderText = "Select date"
     />
 );
 

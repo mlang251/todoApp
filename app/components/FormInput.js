@@ -4,13 +4,20 @@ import Datepicker from './Datepicker';
 
 const FormInput = props => {
     const {field, type, todoItem, updateField, startDate} = props;
-    const element = type === "date" ? (
+    const element = ["date", "description"].indexOf(type) === -1 ? (
+        <input
+            type = {type}
+            id = {field}
+            value = {todoItem[field]}
+            onChange = {updateField.bind(null, field, undefined)}>
+        </input>
+    ) : type === "date" ? (
         <Datepicker
             field = {field}
             startDate = {startDate}
             updateField = {props.updateField}
         />
-    ) : type === "description" ? (
+    ) : (
         <textarea
             rows = "5"
             id = "Description"
@@ -18,13 +25,6 @@ const FormInput = props => {
             onChange = {updateField.bind(null, field, undefined)}
             style = {styles.textarea}>
         </textarea>
-    ) : (
-        <input
-            type = {type}
-            id = {field}
-            value = {todoItem[field]}
-            onChange = {updateField.bind(null, field, undefined)}>
-        </input>
     )
 
     return (

@@ -47,6 +47,7 @@ class NewItemFormContainer extends React.Component {
                 Time: '',
                 Description: ''
             },
+            startDate: moment(),
             idIndex: nextId
         });
     }
