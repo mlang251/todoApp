@@ -2,25 +2,29 @@ import React from 'react';
 import TodoItem from './TodoItem';
 import Radium from 'radium';
 
-const ItemFeed = props => {
-    let items = [];
-    props.items.forEach(item => {
-        items.push(
+const generateItems = (items, removeItem, checked, handleCheckboxChange) => {
+    let itemsArray = [];
+    items.forEach(item => {
+        itemsArray.push(
             <TodoItem
                 key = {item.id}
                 item = {item}
-                checked = {props.checked}
-                removeItem = {props.removeItem}
-                handleCheckboxChange = {props.handleCheckboxChange}
+                checked = {checked}
+                removeItem = {removeItem}
+                handleCheckboxChange = {handleCheckboxChange}
             />
         );
     });
+    return itemsArray;
+};
 
+const ItemFeed = props => {
+    const {heading, items, removeItem, checked, handleCheckboxChange, outerElementClassName} = props;
     return (
         <div
-            className = {props.outerElementClassName}>
-            <h2 className = "text-center">{props.heading}</h2>
-            {items}
+            className = {outerElementClassName}>
+            <h2 className = "text-center">{heading}</h2>
+            {generateItems(items, removeItem, checked, handleCheckboxChange)}
         </div>
     );
 }

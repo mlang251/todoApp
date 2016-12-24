@@ -2,8 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 import Datepicker from './Datepicker';
 
-const FormInput = props => {
-    const {field, type, todoItem, updateField, startDate} = props;
+const generateElement = (field, type, todoItem, updateField, startDate) => {
     const element = ["date", "description"].indexOf(type) === -1 ? (
         <input
             type = {type}
@@ -26,17 +25,21 @@ const FormInput = props => {
             style = {styles.textarea}>
         </textarea>
     )
+    return element;
+};
 
+const FormInput = props => {
+    const {field, type, todoItem, updateField, startDate} = props;
     return (
         <div>
             <label
                 htmlFor = {field}
                 id = {field}
                 style = {styles.label}>{field}</label>
-            {element}
+            {generateElement(field, type, todoItem, updateField, startDate)}
         </div>
     );
-}
+};
 
 FormInput.propTypes = {
     field: React.PropTypes.string.isRequired,

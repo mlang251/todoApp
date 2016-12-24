@@ -2,28 +2,32 @@ import React from 'react';
 import Radium from 'radium';
 import FormInput from './FormInput';
 
-const NewItemForm = props => {
-    let inputs = [];
-    for (let prop in props.fields) {
-        inputs.push(
+const generateInputs = (todoItem, fields, updateField, startDate) => {
+    let inputsArray = [];
+    for (let prop in fields) {
+        inputsArray.push(
             <FormInput
                 key = {prop}
                 field = {prop}
-                type = {props.fields[prop]}
-                todoItem = {props.todoItem}
-                updateField = {props.updateField}
-                startDate = {props.startDate}
+                type = {fields[prop]}
+                todoItem = {todoItem}
+                updateField = {updateField}
+                startDate = {startDate}
             />
         )
     }
+    return inputsArray;
+};
 
+const NewItemForm = props => {
+    const {todoItem, fields, updateField, submitForm, startDate} = props;
     return (
         <form>
-            {inputs}
+            {generateInputs(todoItem, fields, updateField, startDate)}
             <button
                 type = "button"
                 id = "addItem"
-                onClick = {props.submitForm}>
+                onClick = {submitForm}>
                 <label htmlFor = "addItem">Add Item</label>
             </button>
         </form>

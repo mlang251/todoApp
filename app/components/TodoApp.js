@@ -13,15 +13,15 @@ const TodoApp = props => (
             items = {props.todoItems}
             removeItem = {props.removeItem}
             checked = {false}
-            outerElementClassName = {outerElementClassName.ItemFeed_todo}
-            handleCheckboxChange = {props.handleCheckboxChange} />
+            handleCheckboxChange = {props.handleCheckboxChange}
+            outerElementClassName = {outerElementClassName.ItemFeed_todo} />
         <ItemFeed
             heading = "Completed Items"
             items = {props.completedItems}
             removeItem = {props.removeItem}
             checked = {true}
-            outerElementClassName = {outerElementClassName.ItemFeed_complete}
-            handleCheckboxChange = {props.handleCheckboxChange} />
+            handleCheckboxChange = {props.handleCheckboxChange}
+            outerElementClassName = {outerElementClassName.ItemFeed_complete} />
     </div>
 );
 

@@ -13,18 +13,19 @@ class TodoAppContainer extends React.Component {
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     }
 
-    addItemToArray(item, newTodoItem) {
-        const arrayName = newTodoItem ? "todoItems"
+    addItemToArray(item, newTodoItemBool) {
+        const arrayName = newTodoItemBool ? "todoItems"
                                       : "completedItems"
         const newArray = [
             ...this.state[arrayName],
             item
         ];
+
         return newArray;
     }
 
-    removeItemFromArray(removeId, checked) {
-        const arrayName = checked ? "completedItems"
+    removeItemFromArray(removeId, checkedBool) {
+        const arrayName = checkedBool ? "completedItems"
                                   : "todoItems"
 
         let removedItem = {};

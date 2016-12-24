@@ -1,13 +1,13 @@
 import React from 'react';
 import Radium from 'radium';
 
-const TodoItem = props => {
+const generateTodoItem = item => {
     let nameLocation = [];
     let dateTime = [];
     let description;
-    for (let prop in props.item) {
+    for (let prop in item) {
         const componentStyles = styles[prop];
-        const paragraphElement = prop != "id" && <p key = {prop} style = {componentStyles}>{props.item[prop]}</p>;
+        const paragraphElement = prop != "id" && <p key = {prop} style = {componentStyles}>{item[prop]}</p>;
 
         prop == 'Name' || prop == 'Location' ? (
             nameLocation.push(paragraphElement)
@@ -15,15 +15,25 @@ const TodoItem = props => {
             dateTime.push(paragraphElement)
         ) : description = paragraphElement
     }
+    return [nameLocation, dateTime, description];
+};
 
+const assignCheckboxMessage = checked => {
     let checkboxMessage;
-    props.checked ? (
+    checked ? (
         Object.assign(styles.div_todoItem, {backgroundColor: '#56F066'}),
         checkboxMessage = "Mark as incomplete"
     ) : (
         Object.assign(styles.div_todoItem, {backgroundColor: '#A5A3C7'}),
         checkboxMessage = "Mark as complete"
     )
+    return checkboxMessage;
+}
+
+const TodoItem = props => {
+    const {item, checked, removeItem, handleCheckboxChange} = props;
+    const [nameLocation, dateTime, description] = generateTodoItem(item);
+    const checkboxMessage = assignCheckboxMessage(checked);
 
     return (
         <div id = "todoItem" style = {styles.div_todoItem}>
