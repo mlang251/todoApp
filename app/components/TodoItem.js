@@ -28,7 +28,12 @@ const TodoItem = props => {
                 {dateTime}
             </div>
             {description}
-            <label><input type = "checkbox" checked = {props.checked} onChange = {props.handleChange}/>Mark as complete</label>
+            <label>
+                <input
+                    type = "checkbox"
+                    checked = {props.checked}
+                    onChange = {props.handleCheckboxChange.bind(null, props.item.id, props.checked)}
+                />Mark as complete</label>
             <button onClick = {props.removeItem.bind(null, props.item.id)}
                 style = {styles.button}>X</button>
         </div>
