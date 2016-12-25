@@ -1,16 +1,19 @@
 import React from 'react';
 import TodoApp from './TodoApp';
+import {StyleRoot} from 'radium';
 
 class TodoAppContainer extends React.Component {
     constructor() {
         super();
         this.state = {
             todoItems: [],
-            completedItems: []
+            completedItems: [],
+            todoVisible: true
         };
         this.submitForm = this.submitForm.bind(this);
         this.removeItem = this.removeItem.bind(this);
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+        this.toggleItemFeed = this.toggleItemFeed.bind(this);
     }
 
     addItemToArray(item, newTodoItemBool) {
@@ -70,15 +73,26 @@ class TodoAppContainer extends React.Component {
         });
     }
 
+    toggleItemFeed() {
+        const todoVisible = !this.state.todoVisible;
+        this.setState({
+            todoVisible: todoVisible
+        });
+    }
+
     render() {
         return (
-            <TodoApp
-                submitForm = {this.submitForm}
-                removeItem = {this.removeItem}
-                todoItems = {this.state.todoItems}
-                completedItems = {this.state.completedItems}
-                handleCheckboxChange = {this.handleCheckboxChange}
-            />
+            <StyleRoot>
+                <TodoApp
+                    submitForm = {this.submitForm}
+                    removeItem = {this.removeItem}
+                    todoItems = {this.state.todoItems}
+                    completedItems = {this.state.completedItems}
+                    handleCheckboxChange = {this.handleCheckboxChange}
+                    toggleItemFeed = {this.toggleItemFeed}
+                    todoVisible = {this.state.todoVisible}
+                />
+            </StyleRoot>
         );
     }
 }

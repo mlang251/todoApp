@@ -18,16 +18,35 @@ const generateItems = (items, removeItem, checked, handleCheckboxChange) => {
     return itemsArray;
 };
 
+const displayToggleMessage = checked => {
+    const toggleMessage = checked ? "Show todo items"
+                                  : "Show completed items"
+    return toggleMessage;
+};
+
+const setDivStyles = (checked, todoVisible) => {
+    styles.div.display = checked ? todoVisible ? "none"
+                                               : "inline-block"
+                                 : todoVisible ? "inline-block"
+                                               : "none"
+}
+
 const ItemFeed = props => {
-    const {heading, items, removeItem, checked, handleCheckboxChange, outerElementClassName} = props;
+    const {heading, items, removeItem, checked, handleCheckboxChange,
+        toggleItemFeed, outerElementClassName, todoVisible} = props;
+    setDivStyles(checked, todoVisible);
     return (
-        <div
+        <div style = {styles.div}
             className = {outerElementClassName}>
             <h2 className = "text-center">{heading}</h2>
+            <button
+                className = "visible-sm visible-xs"
+                type = "button"
+                onClick = {toggleItemFeed.bind(null, checked)}>{displayToggleMessage(checked)}</button>
             {generateItems(items, removeItem, checked, handleCheckboxChange)}
         </div>
     );
-}
+};
 
 ItemFeed.propTypes = {
     heading: React.PropTypes.string,
@@ -43,13 +62,23 @@ ItemFeed.propTypes = {
     ).isRequired,
     removeItem: React.PropTypes.func.isRequired,
     checked: React.PropTypes.bool.isRequired,
+    handleCheckboxChange: React.PropTypes.func.isRequired,
+    toggleItemFeed: React.PropTypes.func.isRequired,
     outerElementClassName: React.PropTypes.string,
-    handleCheckboxChange: React.PropTypes.func.isRequired
+    todoVisible: React.PropTypes.bool.isRequired
 };
 
 ItemFeed.defaultProps = {
     heading: 'Item Feed',
     outerElementClassName: 'itemFeed'
 };
+
+let styles = {
+    div: {
+        '@media (min-width: 992px)': {
+            display: 'inline-block'
+        }
+    }
+}
 
 export default Radium(ItemFeed);

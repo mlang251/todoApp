@@ -14,14 +14,18 @@ const TodoApp = props => (
             removeItem = {props.removeItem}
             checked = {false}
             handleCheckboxChange = {props.handleCheckboxChange}
-            outerElementClassName = {outerElementClassName.ItemFeed_todo} />
+            toggleItemFeed = {props.toggleItemFeed}
+            outerElementClassName = {outerElementClassName.ItemFeed_todo}
+            todoVisible = {props.todoVisible} />
         <ItemFeed
             heading = "Completed Items"
             items = {props.completedItems}
             removeItem = {props.removeItem}
             checked = {true}
             handleCheckboxChange = {props.handleCheckboxChange}
-            outerElementClassName = {outerElementClassName.ItemFeed_complete} />
+            toggleItemFeed = {props.toggleItemFeed}
+            outerElementClassName = {outerElementClassName.ItemFeed_complete}
+            todoVisible = {props.todoVisible} />
     </div>
 );
 
@@ -48,13 +52,15 @@ TodoApp.propTypes = {
             id: React.PropTypes.string
         })
     ).isRequired,
-    handleCheckboxChange: React.PropTypes.func.isRequired
+    handleCheckboxChange: React.PropTypes.func.isRequired,
+    toggleItemFeed: React.PropTypes.func.isRequired,
+    todoVisible: React.PropTypes.bool.isRequired
 };
 
 var outerElementClassName = {
     Sidebar: "col-sm-4",
-    ItemFeed_todo: "col-sm-4",
-    ItemFeed_complete: "col-sm-4"
+    ItemFeed_todo: "col-md-4",
+    ItemFeed_complete: "col-md-4"
 };
 
 export default TodoApp;
