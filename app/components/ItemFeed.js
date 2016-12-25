@@ -42,7 +42,8 @@ const ItemFeed = props => {
             <button
                 className = "visible-sm visible-xs"
                 type = "button"
-                onClick = {toggleItemFeed.bind(null, checked)}>{displayToggleMessage(checked)}</button>
+                onClick = {toggleItemFeed.bind(null, checked)}
+                style = {styles.button}>{displayToggleMessage(checked)}</button>
             {generateItems(items, removeItem, checked, handleCheckboxChange)}
         </div>
     );
@@ -77,7 +78,14 @@ let styles = {
     div: {
         '@media (min-width: 992px)': {
             display: 'inline-block'
+        },
+        '@media (max-width: 767px)': {
+            width: '100%'
         }
+    },
+    button: {
+        marginLeft: 'auto',
+        marginRight: 'auto'
     }
 }
 

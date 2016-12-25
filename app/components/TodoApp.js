@@ -59,8 +59,8 @@ TodoApp.propTypes = {
 
 var outerElementClassName = {
     Sidebar: "col-sm-4",
-    ItemFeed_todo: "col-md-4",
-    ItemFeed_complete: "col-md-4"
+    ItemFeed_todo: "col-md-4 col-sm-8",
+    ItemFeed_complete: "col-md-4 col-sm-8"
 };
 
 export default TodoApp;
