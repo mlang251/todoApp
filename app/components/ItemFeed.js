@@ -37,7 +37,8 @@ ItemFeed.propTypes = {
             Location: React.PropTypes.string,
             Date: React.PropTypes.string,
             Time: React.PropTypes.string,
-            Description: React.PropTypes.string
+            Description: React.PropTypes.string,
+            id: React.PropTypes.string
         })
     ).isRequired,
     removeItem: React.PropTypes.func.isRequired,

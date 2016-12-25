@@ -18,7 +18,7 @@ const generateTodoItem = item => {
     return [nameLocation, dateTime, description];
 };
 
-const assignCheckboxMessage = checked => {
+const itemStyling = checked => {
     let checkboxMessage;
     checked ? (
         Object.assign(styles.div_todoItem, {backgroundColor: '#56F066'}),
@@ -33,7 +33,7 @@ const assignCheckboxMessage = checked => {
 const TodoItem = props => {
     const {item, checked, removeItem, handleCheckboxChange} = props;
     const [nameLocation, dateTime, description] = generateTodoItem(item);
-    const checkboxMessage = assignCheckboxMessage(checked);
+    const checkboxMessage = itemStyling(checked);
 
     return (
         <div id = "todoItem" style = {styles.div_todoItem}>
@@ -63,7 +63,8 @@ TodoItem.propTypes = {
         Location: React.PropTypes.string,
         Date: React.PropTypes.string,
         Time: React.PropTypes.string,
-        Description: React.PropTypes.string
+        Description: React.PropTypes.string,
+        id: React.PropTypes.string
     }).isRequired,
     checked: React.PropTypes.bool.isRequired,
     removeItem: React.PropTypes.func.isRequired,

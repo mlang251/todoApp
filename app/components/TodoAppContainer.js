@@ -15,7 +15,7 @@ class TodoAppContainer extends React.Component {
 
     addItemToArray(item, newTodoItemBool) {
         const arrayName = newTodoItemBool ? "todoItems"
-                                      : "completedItems"
+                                          : "completedItems"
         const newArray = [
             ...this.state[arrayName],
             item
@@ -26,7 +26,7 @@ class TodoAppContainer extends React.Component {
 
     removeItemFromArray(removeId, checkedBool) {
         const arrayName = checkedBool ? "completedItems"
-                                  : "todoItems"
+                                      : "todoItems"
 
         let removedItem = {};
         const newArray = this.state[arrayName].filter(currentItem => {
