@@ -7,6 +7,8 @@ const TodoApp = props => (
         <h1 className = "text-center">My First Todo App</h1>
         <Sidebar
             submitForm = {props.submitForm}
+            toggleSidebar = {props.toggleSidebar}
+            sidebarVisible = {props.sidebarVisible}
             outerElementClassName = {outerElementClassName.Sidebar} />
         <ItemFeed
             heading = "Todo Items"
@@ -31,6 +33,8 @@ const TodoApp = props => (
 
 TodoApp.propTypes = {
     submitForm: React.PropTypes.func.isRequired,
+    toggleSidebar: React.PropTypes.func.isRequired,
+    sidebarVisible: React.PropTypes.bool,
     removeItem: React.PropTypes.func.isRequired,
     todoItems: React.PropTypes.arrayOf(
         React.PropTypes.shape({
@@ -57,7 +61,11 @@ TodoApp.propTypes = {
     todoVisible: React.PropTypes.bool.isRequired
 };
 
-var outerElementClassName = {
+TodoApp.defaultProps = {
+    sidebarVisible: true
+}
+
+let outerElementClassName = {
     Sidebar: "col-sm-4",
     ItemFeed_todo: "col-md-4 col-sm-8",
     ItemFeed_complete: "col-md-4 col-sm-8"

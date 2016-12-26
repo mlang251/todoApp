@@ -8,12 +8,14 @@ class TodoAppContainer extends React.Component {
         this.state = {
             todoItems: [],
             completedItems: [],
-            todoVisible: true
+            todoVisible: true,
+            sidebarVisible: true
         };
         this.submitForm = this.submitForm.bind(this);
         this.removeItem = this.removeItem.bind(this);
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
         this.toggleItemFeed = this.toggleItemFeed.bind(this);
+        this.toggleSidebar = this.toggleSidebar.bind(this);
     }
 
     addItemToArray(item, newTodoItemBool) {
@@ -80,6 +82,13 @@ class TodoAppContainer extends React.Component {
         });
     }
 
+    toggleSidebar() {
+        const sidebarVisible = !this.state.sidebarVisible;
+        this.setState({
+            sidebarVisible: sidebarVisible
+        });
+    }
+
     render() {
         return (
             <StyleRoot>
@@ -91,6 +100,8 @@ class TodoAppContainer extends React.Component {
                     handleCheckboxChange = {this.handleCheckboxChange}
                     toggleItemFeed = {this.toggleItemFeed}
                     todoVisible = {this.state.todoVisible}
+                    toggleSidebar = {this.toggleSidebar}
+                    sidebarVisible = {this.state.sidebarVisible}
                 />
             </StyleRoot>
         );

@@ -85,7 +85,8 @@ let styles = {
     },
     button: {
         marginLeft: 'auto',
-        marginRight: 'auto'
+        marginRight: 'auto',
+        marginBottom: '15px'
     }
 }
 

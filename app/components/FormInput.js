@@ -60,7 +60,8 @@ var styles = {
         display: 'block'
     },
     textarea: {
-        width: '100%'
+        width: '100%',
+        maxWidth: '30em'
     }
 };
 

@@ -78,9 +78,11 @@ var styles = {
         borderColor: '#999',
         padding: 15,
         marginBottom: 10,
-        display: 'inline-block',
         width: '100%',
-        boxShadow: '0 3px 8px #333'
+        maxWidth: '30em',
+        boxShadow: '0 3px 8px #333',
+        marginLeft: 'auto',
+        marginRight: 'auto'
     },
     Name: {
         fontSize: '2em',
