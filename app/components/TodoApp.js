@@ -63,9 +63,9 @@ TodoApp.propTypes = {
 
 TodoApp.defaultProps = {
     sidebarVisible: true
-}
+};
 
-let outerElementClassName = {
+const outerElementClassName = {
     Sidebar: "col-sm-4",
     ItemFeed_todo: "col-md-4 col-sm-8",
     ItemFeed_complete: "col-md-4 col-sm-8"

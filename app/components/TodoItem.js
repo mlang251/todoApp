@@ -38,7 +38,7 @@ const generateTodoItem = item => {
 const itemStyling = checked => {
     let checkboxMessage;
     checked ? (
-        Object.assign(styles.div_todoItem, {backgroundColor: '#56F066'}),
+        Object.assign(styles.div_todoItem, {backgroundColor: '#49CC57'}),
         checkboxMessage = "Mark as incomplete"
     ) : (
         Object.assign(styles.div_todoItem, {backgroundColor: '#A5A3C7'}),
@@ -114,7 +114,7 @@ var styles = {
         fontSize: '1.6em',
         fontFamily: 'arial',
         display: 'inline-block',
-        color: '#2965A6',
+        color: '#3075BF',
         margin: 0,
         paddingBottom: 5
     },
@@ -131,7 +131,7 @@ var styles = {
         fontSize: '1.2em',
         fontFamily: 'arial',
         display: 'inline-block',
-        color: '#B26B48',
+        color: '#7F4D34',
         margin: 0,
         paddingBottom: 5
     },
