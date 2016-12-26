@@ -1,13 +1,30 @@
 import React from 'react';
 import Radium from 'radium';
 
+const formatTime = time => {
+    let [hours, minutes] = time.split(':');
+    const period = hours >= '12' ? "PM" : "AM"
+    if (hours > '12') {
+        hours -= '12'
+    }
+    else if (hours == '00') {
+        hours = '12'
+    }
+    else if (hours < '10' && period == 'AM') {
+        hours = hours[1];
+    }
+    return `${hours}:${minutes} ${period}`;
+};
+
 const generateTodoItem = item => {
     let nameLocation = [];
     let dateTime = [];
     let description;
     for (let prop in item) {
+        const value = prop == "Time" ? formatTime(item[prop])
+                                     : item[prop]
         const componentStyles = styles[prop];
-        const paragraphElement = prop != "id" && <p key = {prop} style = {componentStyles}>{item[prop]}</p>;
+        const paragraphElement = prop != "id" && <p key = {prop} style = {componentStyles}>{value}</p>;
 
         prop == 'Name' || prop == 'Location' ? (
             nameLocation.push(paragraphElement)

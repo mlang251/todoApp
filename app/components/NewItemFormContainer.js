@@ -22,9 +22,8 @@ class NewItemFormContainer extends React.Component {
     }
 
     updateField(field, date, e) {
-        const [value, dateValue] = field !== "Date" ? [e.target.value, this.state.startDate]
-                                                    : [date.format('ddd MMM D, YYYY'), date]
-
+        let [value, dateValue] = field !== "Date" ? [e.target.value, this.state.startDate]
+                                                  : [date.format('ddd MMM D, YYYY'), date]
         let todoItem = {};
         for (let prop in this.state.todoItem) {
             prop != field ? todoItem[prop] = this.state.todoItem[prop]
