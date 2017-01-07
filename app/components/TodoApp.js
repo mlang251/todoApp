@@ -1,10 +1,11 @@
 import React from 'react';
+import Radium from 'radium';
 import ItemFeed from './ItemFeed';
 import Sidebar from './Sidebar';
 
 const TodoApp = props => (
     <div className = "row">
-        <h1 className = "text-center">My First Todo App</h1>
+        <h1 className = "text-center" style = {styles.h1}>My First Todo App</h1>
         <Sidebar
             submitForm = {props.submitForm}
             toggleSidebar = {props.toggleSidebar}
@@ -71,4 +72,10 @@ const outerElementClassName = {
     ItemFeed_complete: "col-md-4 col-sm-8"
 };
 
-export default TodoApp;
+const styles = {
+    h1: {
+        color: "#FFFFDD"
+    }
+};
+
+export default Radium(TodoApp);

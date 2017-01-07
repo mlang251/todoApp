@@ -33,7 +33,7 @@ const Sidebar = props => {
             <div id = "sidebar"
                 className = {outerElementClassName}
                 style = {styles.div}>
-                <h2 className = "text-center">Add New Item</h2>
+                <h2 className = "text-center" style = {styles.h2}>Add New Item</h2>
                 <NewItemFormContainer
                     submitForm = {submitForm} />
             </div>
@@ -61,6 +61,9 @@ const styles = {
     div: {
         marginLeft: 'auto',
         marginRight: 'auto'
+    },
+    h2: {
+        color: "#DDDDBB"
     }
 }
 

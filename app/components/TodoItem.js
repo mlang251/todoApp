@@ -38,10 +38,10 @@ const generateTodoItem = item => {
 const itemStyling = checked => {
     let checkboxMessage;
     checked ? (
-        Object.assign(styles.div_todoItem, {backgroundColor: '#49CC57'}),
+        Object.assign(styles.div_todoItem, {backgroundColor: '#1E8229'}),
         checkboxMessage = "Mark as incomplete"
     ) : (
-        Object.assign(styles.div_todoItem, {backgroundColor: '#A5A3C7'}),
+        Object.assign(styles.div_todoItem, {backgroundColor: '#873842'}),
         checkboxMessage = "Mark as complete"
     )
     return checkboxMessage;
@@ -92,7 +92,7 @@ var styles = {
     div_todoItem: {
         borderWidth: 1,
         borderStyle: 'solid',
-        borderColor: '#999',
+        borderColor: '#065478',
         padding: 15,
         marginBottom: 10,
         width: '100%',
@@ -103,42 +103,35 @@ var styles = {
     },
     Name: {
         fontSize: '2em',
-        fontFamily: 'arial',
         display: 'inline-block',
-        color: '#3075BF',
+        color: '#FFFFDD',
         margin: 0,
-        paddingBottom: 5,
         paddingRight: 5
     },
     Location: {
         fontSize: '1.6em',
-        fontFamily: 'arial',
         display: 'inline-block',
-        color: '#3075BF',
+        color: '#DDDDBB',
         margin: 0,
-        paddingBottom: 5
     },
     Date: {
         fontSize: '1.2em',
-        fontFamily: 'arial',
         display: 'inline-block',
-        color: '#7F4D34',
+        color: '#FFFFDD',
         margin: 0,
         paddingBottom: 5,
         paddingRight: 5
     },
     Time: {
         fontSize: '1.2em',
-        fontFamily: 'arial',
         display: 'inline-block',
-        color: '#7F4D34',
+        color: '#DDDDBB',
         margin: 0,
         paddingBottom: 5
     },
     Description: {
         fontSize: '1em',
-        fontFamily: 'georgia',
-        color: '#7F5567',
+        color: '#FFFFDD',
         margin: 0,
     },
     checkboxLabel: {

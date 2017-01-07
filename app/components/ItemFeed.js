@@ -38,7 +38,7 @@ const ItemFeed = props => {
     return (
         <div style = {styles.div}
             className = {outerElementClassName}>
-            <h2 className = "text-center">{heading}</h2>
+            <h2 className = "text-center" style = {styles.h2}>{heading}</h2>
             <button
                 className = "visible-sm visible-xs"
                 type = "button"
@@ -87,6 +87,9 @@ let styles = {
         marginLeft: 'auto',
         marginRight: 'auto',
         marginBottom: '15px'
+    },
+    h2: {
+        color: "#DDDDBB"
     }
 }
 

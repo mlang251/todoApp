@@ -57,7 +57,10 @@ FormInput.propTypes = {
 
 var styles = {
     label: {
-        display: 'block'
+        display: 'block',
+        marginBottom: 0,
+        marginTop: 10,
+        color: "#DDDDBB"
     },
     textarea: {
         width: '100%',
